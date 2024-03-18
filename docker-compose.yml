@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  humming-bee:
+    container_name: humming-bee
+    build: .
+    volumes:
+      - ./:/app
+      - ./storage:/app/storage
+    networks:
+      - humming-bee-app-tier
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TOGETHERAI_API_KEY=${TOGETHERAI_API_KEY}
+      - ANYSCALE_API_KEY=${ANYSCALE_API_KEY}
+    tty: true
+
+networks:
+  humming-bee-app-tier:
+    driver: bridge
