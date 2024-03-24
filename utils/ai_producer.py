@@ -31,7 +31,6 @@ class AIProducer(ABC):
             **params
         )
         text_response =  chat_completion.choices[0].message.content
-        print(text_response)
 
         return self.post_process_response(text=text_response)
     

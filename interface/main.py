@@ -58,6 +58,7 @@ description = st.text_area('Description', 'Write something here...')
 if st.button('Generate'):
     ai_producer = AIProducer(st.session_state['agent'], st.session_state['model'])
     abc_notes = ai_producer.generator(description=description, params=response_param)
+    st.text(abc_notes)
 
     hg = HummingGenerator(abc_notes)
     try:
