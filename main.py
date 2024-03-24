@@ -1,10 +1,16 @@
+import sys
+
+sys.path.append('utils')
 from utils import (ai_producer, rythm_generator)
 
 if __name__ == "__main__":
-    description = 'Japanese samurai battle, fantansy, dramatic, honor, god'
+    description = 'Michael Jackson - Billie Jean'
 
-    ai_producer = ai_producer.AIProducer('togetherai', 'mistralai/Mixtral-8x7B-Instruct-v0.1')
-    abc_notes = ai_producer.generator(description=description)
+    ai_producer = ai_producer.AIProducer('openai', 'gpt-3.5-turbo')
+    abc_notes = ai_producer.generator(description=description, params={})
 
     hg = rythm_generator.HummingGenerator(abc_notes)
-    hg.generator()
+    try:
+        hg.generator()
+    except Exception as e:
+        raise(e)

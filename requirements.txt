@@ -2,3 +2,5 @@ music21
 midi2audio
 together
 openai
+streamlit
+streamp3

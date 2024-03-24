@@ -31,4 +31,11 @@ class HummingGenerator:
 
         # Convert MIDI to MP3
         fs = FluidSynth()
-        fs.midi_to_audio(midi_path, f'{output_dir}/output.wav')
+        fs.midi_to_audio(midi_path, f'{output_dir}/output.mp3')
+
+    def get_audio_bytes(self):
+        output_dir = './storage'
+        audio_file = open(f'{output_dir}/output.mp3', 'rb')
+        audio_bytes = audio_file.read()
+
+        return audio_bytes
